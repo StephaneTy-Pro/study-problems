@@ -11,6 +11,8 @@ inclusion de javascript
 [linkSpider](https://github.com/jscrip/linkSpider) : A JavaScript Link Crawler you can inject in the browser.
 
 [Easily include external HTML into your pages.](https://github.com/justinfagnani/html-include-element)Easily include external HTML into your pages.
-[include-fragment-element](https://github.com/github/include-fragment-element)
-[)(https://github.com/xmoonlight/includeHTML)
+[include-fragment-element](https://github.com/github/include-fragment-element)  A client-side includes tag. 
+[includeHTML](https://github.com/xmoonlight/includeHTML): includeHTML - Include HTML DOM nodes/parts (loading) via HTML tag into HTML-page for templates and SPA (pure js) 
 [wc-inlclude](https://github.com/vanillawc/wc-include) A vanilla web component for including external media 
+
+[Code-Injector](https://github.com/Lor-Saba/Code-Injector) A WebExtensions based addon which let the user inject code into the websites
