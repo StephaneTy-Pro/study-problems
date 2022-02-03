@@ -1,3 +1,8 @@
+# Qu'est ce donc
+https://web.dev/css-module-scripts/
+https://web.dev/css-module-scripts/
+https://css-tricks.com/the-many-ways-to-include-css-in-javascript-applications/ (moins bon)
+
 # a propos de la compilation
 esbuild ne le compilera pas cf https://github.com/evanw/esbuild/issues/20
 
