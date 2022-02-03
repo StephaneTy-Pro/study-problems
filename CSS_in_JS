@@ -13,3 +13,17 @@ https://stackoverflow.com/questions/8209086/javascript-can-i-dynamically-create-
 supporté uniquement par chrome pour le moment
 possibilité sour firefox d'utiliser un polyfill
 https://github.com/calebdwilliams/construct-style-sheets
+
+# Idée
+
+## Créer des object js pour les exploiter en css pour pouvoir bénéficier des exports 
+
+- https://github.com/robinweser/inline-style-transformer
+- https://github.com/jxnblk/object-style
+- https://github.com/soxtoby/StyleMap
+- https://github.com/tomhodgins/csson
+
+(on s'éloigne un peu du sujet car on parle de parsing ccs)
+https://github.com/tomhodgins/parse-css
+https://github.com/tabatkins/parse-css/blob/master/parse-css.js
+https://github.com/tomhodgins/process-css
