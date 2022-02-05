@@ -19,7 +19,30 @@ https://github.com/calebdwilliams/construct-style-sheets
 ## Créer des object js pour les exploiter en css pour pouvoir bénéficier des exports 
 
 - https://github.com/robinweser/inline-style-transformer
-- https://github.com/jxnblk/object-style
+- https://github.com/jxnblk/object-style : mis à part que j'ai du patcher le source (jsDelivr n'intégrant pas le module de calcul  de hash) ça fonctionne ; cependant le résultat n'est pas très bon, il génère une nom pour chaque règle, et interprete tres mal certaines règles comme le +
+
+```js
+var { className1, css1 } = objectSyle({
+   
+  ".container": { display: "flex" },
+  ".item": { flexGrow: 1, height: "100px" },
+  ".item + .item": { marginLeft: "2%" }
+
+})
+
+renvoie 
+$Object{
+  "className": "xp3vdxn x1lcqcjh x10wj2ge xr63qfo",
+  "rules": [
+    ".xp3vdxn.container{display:flex}",
+    ".x1lcqcjh.item{flex-grow:1}.x10wj2ge.item{height:100px}",
+    ".xr63qfo.item + .item{margin-left:2%}"
+  ],
+  "css": ".xp3vdxn.container{display:flex}.x1lcqcjh.item{flex-grow:1}.x10wj2ge.item{height:100px}.xr63qfo.item + .item{margin-left:2%}"
+}
+
+```
+
 - https://github.com/soxtoby/StyleMap
 - https://github.com/tomhodgins/csson
 
