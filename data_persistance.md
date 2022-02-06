@@ -13,6 +13,9 @@ Lié a DEXIE, cette librairie permet de stocker des fichiers dans indexed db
 https://github.com/stoxy-js/stoxy
 Cette librairie sert à tout autre chose mais permet à la base de stocker de la donnée dans indexed db
 
+## Immortal DB
+https://github.com/gruns/ImmortalDB
+
 ## Misc
 
 https://github.com/bunchtogether/battery
