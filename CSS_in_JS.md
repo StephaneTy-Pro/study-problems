@@ -101,10 +101,13 @@ import myStyle from './json/style_1.json';
 }).call(this);
 ```
 
+- https://github.com/remarkablemark/style-to-object 
+mais utilise une autre librairie pour générer le code donc à voir si c'est vraiment intéressant
+
 (on s'éloigne un peu du sujet car on parle de parsing ccs)
-https://github.com/tomhodgins/parse-css
-https://github.com/tabatkins/parse-css/blob/master/parse-css.js
-https://github.com/tomhodgins/process-css
+- https://github.com/tomhodgins/parse-css
+- https://github.com/tabatkins/parse-css/blob/master/parse-css.js
+- https://github.com/tomhodgins/process-css
 
 ici ausssi on s'éloinge mais dans une autre direction
-https://github.com/asmcss/assembler
+- https://github.com/asmcss/assembler
