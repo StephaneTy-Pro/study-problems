@@ -45,6 +45,21 @@ $Object{
 
 - https://github.com/soxtoby/StyleMap
 - https://github.com/tomhodgins/csson
+- https://github.com/rodydavis/object-dom :
+ ça aurait pu fonctionner mais en ce qui concerne le style on a besoin d'un fichier texte que l'on va écrire cf https://rodydavis.github.io/object-dom/
+ ```
+import myStyle from './json/style_1.json';
+ 
+ render(new Style({text: `${myStyle}`}), document.body.querySelector("#sttPlaceHolder"));
+ ```
+ le probleme c'est que le fichier json est integré par esbuild en tant que fichier json, et donc on pas du texte mais des objets, je ne peux pas les inscrire directement il faudrait les convertir en texte
+ 
+ ceci dit esbuild permet d'ingégrer un fichier texte
+ 
+  ```
+ import myStyleTxt from './json/style_1.txt';
+ render(new Style({text: `${myStyle}`}), document.body.querySelector("#sttPlaceHolder"));
+ ```
 
 (on s'éloigne un peu du sujet car on parle de parsing ccs)
 https://github.com/tomhodgins/parse-css
