@@ -47,19 +47,59 @@ $Object{
 - https://github.com/tomhodgins/csson
 - https://github.com/rodydavis/object-dom :
  ça aurait pu fonctionner mais en ce qui concerne le style on a besoin d'un fichier texte que l'on va écrire cf https://rodydavis.github.io/object-dom/
- ```
+ ```js
 import myStyle from './json/style_1.json';
- 
  render(new Style({text: `${myStyle}`}), document.body.querySelector("#sttPlaceHolder"));
  ```
  le probleme c'est que le fichier json est integré par esbuild en tant que fichier json, et donc on pas du texte mais des objets, je ne peux pas les inscrire directement il faudrait les convertir en texte
  
  ceci dit esbuild permet d'ingégrer un fichier texte
  
-  ```
+  ```js
  import myStyleTxt from './json/style_1.txt';
  render(new Style({text: `${myStyle}`}), document.body.querySelector("#sttPlaceHolder"));
  ```
+ - https://github.com/giuseppeg/style-sheet : Fast styles in JavaScript with support for static CSS extraction.  
+ Pourrait convenir mais visiblement quelques soucis sur la génération du nom des classes, or dans mon cas il ne doit surtout pas les générer
+ - https://gist.github.com/mrjjwright/982302/e97b8db90e6b81aae23bed2b71e02133b8651162
+ Un coffee script qui permet simplement de générer du css à partir d'un objet ; ça donne ça converti
+ ```js
+ (function() {
+  var root, _css;
+
+  _css = {
+    toCSS: function(obj) {
+      var css, declaration, declarations, propToCSS, property, selector, value;
+      propToCSS = function(key, value) {};
+      css = '';
+      for (selector in obj) {
+        declarations = "";
+        declaration = obj[selector];
+        for (property in declaration) {
+          value = declaration[property];
+          if (_.isNumber(value)) {
+            value = value + "px";
+          }
+          declarations += property + ": " + value + ";\n";
+        }
+        css += selector + " {\n" + declarations + "}\n\n";
+      }
+      return css;
+    }
+  };
+
+  root = this;
+
+  if ((typeof window === "undefined" || window === null) && (typeof module !== "undefined" && module !== null)) {
+    module.exports = _css;
+  } else if (root._ != null) {
+    root._.mixin(_css);
+  } else {
+    root._ = _css;
+  }
+
+}).call(this);
+```
 
 (on s'éloigne un peu du sujet car on parle de parsing ccs)
 https://github.com/tomhodgins/parse-css
