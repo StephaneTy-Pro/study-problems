@@ -17,3 +17,5 @@ Il me faut des librairies qui soient capable de logger en js dans le navigateur
 https://github.com/leoek/fetch-to-curl
 
 https://github.com/xpl/string.ify : pour avoir une belle representation d'une donnée, peut être très sympa probablement avec qjs
+
+https://httptoolkit.tech/download/linux-deb/ : pour debugger des projets web le navigateur est lancé via l'application ce qui explique probablement comment on trace les choses
