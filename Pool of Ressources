@@ -1,0 +1,23 @@
+#
+
+## Pour le moment je teste la solution deePool
+
+[deePool](https://github.com/getify/deePool) highly-efficient pool for JavaScript objects 
+
+## Sujet Weakmap
+
+Je n'ai pas solutionné si oui ou non il fallait utiliser les weakmaps pour gérer un pool d'évenements
+
+## Ressources
+
+A propos des pool
+https://github.com/HowProgrammingWorks/Pool/tree/master/JavaScript	
+voir aussi https://github.com/eguneys/poolz/blob/master/pool.js
+voir aussi https://github.com/planttheidea/nage
+
+et https://github.com/dy/primitive-pool/blob/master/index.js pour les weakmap
+
+WEAKMAP
+https://stackoverflow.com/questions/29413222/what-are-the-actual-uses-of-es6-weakmap
+https://stackoverflow.com/questions/154724/when-would-you-use-a-weakhashmap-or-a-weakreference/156618#156618
+https://stackoverflow.com/questions/154724/when-would-you-use-a-weakhashmap-or-a-weakreference/156618#156618
