@@ -5,6 +5,8 @@ https://blog.logrocket.com/intercepting-javascript-fetch-api-requests-responses/
 https://github.com/werk85/fetch-intercept
 
 ## Général
+
+[runtime-hooks](https://github.com/gaoding-inc/runtime-hooks) : simple fonctionnel court, 3 ans d'existence
 [Patchwork.js](https://github.com/jamesallardice/patchwork.js/) : Monkey-patch native JavaScript constructor functions 
 -> pas mal à tester mais vieux à plus de 9 ans
 
