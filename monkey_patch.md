@@ -1,5 +1,8 @@
 ## Général
 
+### Exemples concrets
+elbywan.github.io/yett/  A small webpage library to control the execution of (third party) scripts TRES INTERRESSANT CAR FAIT DU MONKEY PATCH
+
 ### Les fonctions traditionnelles
 
 [https://github.com/getify/TNG-Hooks](https://github.com/getify/TNG-Hooks) : Provides React-inspired 'hooks' like useState(..) for stand-alone functions 
