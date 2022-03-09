@@ -30,6 +30,7 @@ https://bestofjs.org/projects?tags=browser-storage
 ## Proxies
 
 ### Articles
+https://k33g.gitlab.io/articles/2020-01-05-JS-PROXY.html (premier parce que français)
 https://blog.logrocket.com/use-es6-proxies-to-enhance-your-objects/ : bon exemple avec des functionenrichies
 https://medium.com/dailyjs/how-to-use-javascript-proxies-for-fun-and-profit-365579d4a9f8 : idem avec notamment des functions de recherche enrichies
 https://blog.risingstack.com/writing-a-javascript-framework-data-binding-es6-proxy/ => https://github.com/nx-js/observer-util
@@ -47,8 +48,10 @@ https://javascript.info/proxy
 https://stackoverflow.com/questions/49116507/using-proxy-with-wrapper-objects-around-primitives
 
 ### Librairies
+https://github.com/tomgb/wrap-ware A middleware wrapper which works with promises 
 https://github.com/Weedshaker/ProxifyJS A pure ES6 api:any - handler library backed by ECMAScript Harmony Proxy. Proxifies any object and goes far beyond... 
 https://github.com/Weedshaker/ProxifyJS_Tutorials
+https://github.com/ElliotNB/observable-slim Observable Slim is a singleton that utilizes ES6 Proxies to observe changes made to an object and any nested children of that object. It is intended to assist with state management and one-way data binding. 
 https://github.com/nx-js/observer-util : Transparent reactivity with 100% language coverage. Made with heart and ES6 Proxies. 
 https://github.com/dashersw/regie : An observable state management tool for vanilla JS applications based on Proxies 
 https://github.com/elbywan/hyperactiv  A super tiny reactive library
@@ -62,3 +65,4 @@ https://elbywan.github.io/yett/  A small webpage library to control the executio
 ## Bordel
 https://github.com/laggingreflex/debug-any-level
 https://github.com/debug-js/debug
+https://github.com/nutes-uepb/query-strings-parser Middleware to transform query strings in a format that is recognized by the MongoDB, MySQL and other databases... 
