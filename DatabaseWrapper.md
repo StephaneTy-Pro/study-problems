@@ -1,11 +1,22 @@
 Objectif permettre d'avoir une couche d'abstraction au moteur de base de donnée des applications
 
+## DB
+
+https://github.com/dexie/Dexie.js/  A Minimalistic Wrapper for IndexedDB 
+https://github.com/dexie/Dexie.js/blob/master/src/helpers/debug.ts
+https://github.com/dexie/Dexie.js/blob/master/src/functions/utils.ts
+- [JsStore](https://jsstore.net/) JsStore is a wrapper for IndexedDB. It provides simple SQL like api which is easy to learn & use.
+- [Store](https://github.com/marcuswestin/store.js) Cross-browser storage for all use cases, used across the web. 
+- [Brownies](https://github.com/franciscop/brownies) Tastier cookies, local, session, and db storage in a tiny package. Includes subscribe() events for changes. 
+- [store](https://github.com/nbubna/store) A better way to use localStorage and sessionStorage  INTERESSANT donnée à temps limité possible
+
 ## ORM
 invoque la notion de activeRecored ou datamapper https://github.com/typeorm/typeorm
-exemple https://github.com/typeorm/typeorm TypeORM is an ORM that can run in NodeJS, Browser, Cordova, PhoneGap, Ionic, React Native, NativeScript, Expo, and Electron platforms and can be used with TypeScript and JavaScript (ES5, ES6, ES7, ES8). Its goal is to always support the latest JavaScript features and provide additional features that help you to develop any kind of application that uses databases - from small applications with a few tables to large scale enterprise applications with multiple databases.
-https://www.js-data.io/docs/home JSData is a framework-agnostic, datastore-agnostic ORM (Object-Relational Mapper) for Node.js and the Browser.
-https://mikro-orm.io/docs/faq
-https://www.sitepoint.com/javascript-typescript-orms/
+
+- https://github.com/typeorm/typeorm TypeORM is an ORM that can run in NodeJS, Browser, Cordova, PhoneGap, Ionic, React Native, NativeScript, Expo, and Electron platforms and can be used with TypeScript and JavaScript (ES5, ES6, ES7, ES8). Its goal is to always support the latest JavaScript features and provide additional features that help you to develop any kind of application that uses databases - from small applications with a few tables to large scale enterprise applications with multiple databases.
+- https://www.js-data.io/docs/home JSData is a framework-agnostic, datastore-agnostic ORM (Object-Relational Mapper) for Node.js and the Browser.
+- https://mikro-orm.io/docs/faq
+- https://www.sitepoint.com/javascript-typescript-orms/
 
 
 INFO a garde : https://lodash.com/docs/#get permet de trouve la valeur d'un objet profondemment
