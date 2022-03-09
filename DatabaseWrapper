@@ -1,0 +1,39 @@
+Objectif permettre d'avoir une couche d'abstraction au moteur de base de donnée des applications
+
+## ORM
+invoque la notion de datamapper https://github.com/typeorm/typeorm
+exemple https://github.com/typeorm/typeorm
+
+INFO a garde : https://lodash.com/docs/#get permet de trouve la valeur d'un objet profondemment
+
+## DB
+https://github.com/SebastianSpeitel/proxystore intéressant semble permettre de créer ses propres types de store
+
+## Proxies
+
+### Articles
+https://blog.logrocket.com/use-es6-proxies-to-enhance-your-objects/ : bon exemple avec des functionenrichies
+https://medium.com/dailyjs/how-to-use-javascript-proxies-for-fun-and-profit-365579d4a9f8 : idem avec notamment des functions de recherche enrichies
+https://blog.risingstack.com/writing-a-javascript-framework-data-binding-es6-proxy/ => https://github.com/nx-js/observer-util
+https://devinduct.com/blogpost/36/javascript-proxy-and-its-benefits-let-s-create-an-api-wrapper
+
+Moins bons
+https://amirmustafaofficial.medium.com/javascript-es6-proxy-api-c58a92f475f1
+
+Génériques
+https://javascript.info/proxy
+https://stackoverflow.com/questions/49116507/using-proxy-with-wrapper-objects-around-primitives
+
+### Librairies
+https://github.com/nx-js/observer-util : Transparent reactivity with 100% language coverage. Made with heart and ES6 Proxies. 
+https://github.com/dashersw/regie : An observable state management tool for vanilla JS applications based on Proxies 
+elbywan.github.io/yett/  A small webpage library to control the execution of (third party) scripts TRES INTERRESSANT CAR FAIT DU MONKEY PATCH
+
+
+## A noter
+https://github.com/elbywan/normaliz : permet de transformer (normaliser) un json vers un autre json selon un schémar de conversion (on fait du mapping ) : A tiny library that normalizes data. factory
+https://github.com/SebastianSpeitel/bborg bahs management for borg
+
+## Bordel
+https://github.com/laggingreflex/debug-any-level
+https://github.com/debug-js/debug
