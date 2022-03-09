@@ -10,12 +10,11 @@ https://www.sitepoint.com/javascript-typescript-orms/
 
 INFO a garde : https://lodash.com/docs/#get permet de trouve la valeur d'un objet profondemment
 
-###ODM
+### ODM
 https://github.com/topics/odm?l=javascript
 https://github.com/konsultaner/jsonOdm A JSON ODM (object document mapper) for JavaScript to use on the server or in the browser. 
 https://github.com/yuval-a/derivejs DeriveJS is a reactive ODM - Object Document Mapper - framework, a "wrapper" around a database, that removes all the hassle of data-persistence by handling it transparently in the background, in a DRY manner. 
 https://github.com/limzykenneth/DynamicRecord  A bare minimum Javascript implementation of the Active Record pattern 
-
 
 ### DATAMAPPER
 https://github.com/js-data/js-data Give your data the treatment it deserves with a framework-agnostic, datastore-agnostic JavaScript ORM built for ease of use and peace of mind. Works in Node.js and in the Browser. Main Site: http://js-data.io, API Reference Docs: http://api.js-data.io/js-data
