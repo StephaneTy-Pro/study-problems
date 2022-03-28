@@ -1,5 +1,109 @@
 ## Général
 
+### Article 
+https://nickmeldrum.com/blog/decorators-in-javascript-using-monkey-patching-closures-prototypes-proxies-and-middleware
+
+- Deux patterns intéressants
+ middleware : https://nickmeldrum.com/assets/scripts/decorator-middleware.js
+ 
+ ```javascript
+ 'use strict'
+
+function myComponentFactory() {
+    let suffix = ''
+    const instance = {
+        setSuffix: suff => suffix = suff,
+        printValue: value => console.log(`value is ${value + suffix}`),
+        addDecorators: decorators => {
+            let printValue = instance.printValue
+            decorators.slice().reverse().forEach(decorator => printValue = decorator(printValue))
+            instance.printValue = printValue
+        }
+    }
+    return instance
+}
+
+function toLowerDecorator(inner) {
+    return value => inner(value.toLowerCase())
+}
+
+function validatorDecorator(inner) {
+    return value => {
+        const isValid = ~value.indexOf('My')
+
+        setTimeout(() => {
+            if (isValid) inner(value)
+            else console.log('not valid man...')
+        }, 500)
+    }
+}
+
+const component = myComponentFactory()
+component.addDecorators([validatorDecorator, toLowerDecorator])
+component.setSuffix('!')
+component.printValue('My Value')
+component.printValue('Invalid Value')
+
+ ```
+ NOTESTT: dans la fonction décorée retournée value prend la valeur de la fonction initiale qui recoit elle même une valeur
+ 
+ 
+ prototype : https://nickmeldrum.com/assets/scripts/decorator-inheritance.js
+ ```javascript
+ 'use strict'
+
+function myComponentFactory() {
+    let suffix = ''
+
+    return {
+        setSuffix: suf => suffix = suf,
+        printValue: value => console.log(`value is ${value + suffix}`)
+    }
+}
+
+function toLowerDecorator(inner) {
+    const instance = Object.create(inner)
+    instance.printValue = value => inner.printValue(value.toLowerCase())
+    return instance
+}
+
+function validatorDecorator(inner) {
+    const instance = Object.create(inner)
+    instance.printValue = value => {
+        const isValid = ~value.indexOf('My')
+
+        setTimeout(() => {
+            if (isValid) inner.printValue(value)
+            else console.log('not valid man...')
+        }, 500)
+    }
+    return instance
+}
+
+const component = validatorDecorator(toLowerDecorator(myComponentFactory()))
+component.setSuffix('!')
+component.printValue('My Value')
+component.printValue('Invalid Value')
+```
+ 
+ A noter dans les commentaires les references à Eliott qui contribue à faire émerger ce pattern
+ ``` javascript
+ // doing prototypal inheritance by doing 
+ Object.assign(Object.create(animal) {...}) 
+ ```
+ et le contre argument d'un certain [Jeff M] (https://disqus.com/by/disqus_AeSJxF75RE/)
+ 
+ Quand on suit la vidéo de [Mattias](https://www.youtube.com/watch?v=wfMtDGfHWpA) FunFunFunction
+ 
+ on aboutit aussi à ce [commentaire](https://www.youtube.com/channel/UCOzUngjU_lZ746Fo_TfxfzQ) pour un pattern tres propre
+ 
+> Composition gets better with Object Spread (sugar for Object.assign):
+> return {...barker(state), ...driver(state), ...killer(state)}
+> Spread operators are not just sugar for Object.assign. Object.assign mutates the given object, thus may trigger object setters while spread operator creates a brand new iterable making it more useful with immutable techniques.
+
+ 
+ 
+
 ### Exemples concrets
 elbywan.github.io/yett/  A small webpage library to control the execution of (third party) scripts TRES INTERRESSANT CAR FAIT DU MONKEY PATCH
 
