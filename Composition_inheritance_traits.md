@@ -153,6 +153,8 @@ console.log(john.sayHi2()); // "Hello John"
 ```
 mais ce n'est pas terrible car on est remonté dans le chaine des prototype ce qui n'est pas ce que l'on voulait faire
 regarder aussi ici https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/proto
+et ceci
+https://stackoverflow.com/questions/332422/get-the-name-of-an-objects-type pour essayer de trouver le nom de mon objet
 ## trouver les réferences
 
 ```javascript
