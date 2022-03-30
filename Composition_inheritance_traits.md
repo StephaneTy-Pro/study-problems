@@ -52,7 +52,7 @@ var person = {
 
 var sayHiMixin = {
   sayHi() {
-    console.log('who is this %o',this)
+    //console.log('who is this %o',this);
     return `Hello ${this.firstname}`;
   },
   sayBye() {
@@ -117,4 +117,37 @@ mais
 sayHiMixin.yop = () => 'yop';
 Object.assign(person, sayHiMixin);
 console.log(john.yop()); // "yop"
+```
+Héritage dans les mixin
+```javascript
+// ai testé en inserrant juste apres sayHiMixin
+var sayHiMixinBis = {
+  __proto__: sayHiMixin, // (or we could use Object.setPrototypeOf to set the prototype here)
+
+  sayHi2() {
+    // call parent method
+    return `hello 2 ${super.sayHi()}`; // (*)
+  },
+};
+... reprise du code précédent
+sayHiMixin.yop = () => 'yop';
+Object.assign(person, sayHiMixin);
+console.log(john.yop()); // "yop"
+Object.assign(person, sayHiMixinBis);
+console.log(john.sayHi2()); // "hello 2 Hello John"
+````
+par contre
+```javascript
+sayHiMixin.yop = () => 'yop';
+Object.assign(person, sayHiMixinBis);
+console.log(john.yop()); // " Uncaught TypeError: john.yop is not a function"
+//cette ligne fonctionnerait
+console.log(john.sayHi2()); // "hello 2 Hello John" 
+```
+pour corriger le probleme
+```javascript
+sayHiMixin.__proto__.yop = () => 'yop';
+Object.assign(person, sayHiMixinBis);
+console.log(john.yop()); "yop"
+console.log(john.sayHi2()); // "Hello John"
 ```
