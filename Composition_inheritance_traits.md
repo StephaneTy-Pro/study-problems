@@ -144,10 +144,32 @@ console.log(john.yop()); // " Uncaught TypeError: john.yop is not a function"
 //cette ligne fonctionnerait
 console.log(john.sayHi2()); // "hello 2 Hello John" 
 ```
-pour corriger le probleme
+pour corriger le probleme on pourrait faire
 ```javascript
 sayHiMixin.__proto__.yop = () => 'yop';
 Object.assign(person, sayHiMixinBis);
 console.log(john.yop()); "yop"
 console.log(john.sayHi2()); // "Hello John"
+```
+mais ce n'est pas terrible car on est remonté dans le chaine des prototype ce qui n'est pas ce que l'on voulait faire
+regarder aussi ici https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/proto
+## trouver les réferences
+
+```javascript
+//dans le code précédent si je fais
+console.log(Object.getPrototypeOf(jack));
+/*
+{
+  "firstname": "Default",
+  "lastname": "Default"
+  getName: function(),
+  sayBye: function(),
+  sayHi: function(),
+  sayHi2: function()
+  prototype: 
+  ...
+  yop: function()
+}
+
+// note console.log(Object.getPrototypeOf(jack) === person); renvoie bien true
 ```
