@@ -41,6 +41,8 @@ var objectCreate = Object.create
 
 juste une information la composition par Object.assign opère une shallow copy (on pointe sur la meme zone), par contre ... opère une deepCopy voir dans les tests personnels
 
+- https://www.digitalocean.com/community/tutorials/js-using-js-mixins rapide
+
 # Tests personnels
 
 ## Général
@@ -201,11 +203,14 @@ var alligator = new Alligator('20 mph','North');
 alligator = Object.assign(alligator, swim);
 alligator2 = Object.assign(alligator, swim);
 alligator3 = {...alligator, ...swim};
+alligator4 = Object.assign({},alligator, swim);
 console.log(alligator.location()); // Heading North at 20 mph
 console.log(alligator.a); // 1
 alligator.a = 2;
 console.log(alligator.a); //2
 console.log(alligator2.a); //2 
 console.log(alligator3.a); //1
+console.log(alligator4.a); //1
+console.log(alligator === alligator2); // true
 ```
 ```
