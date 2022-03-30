@@ -20,6 +20,7 @@ https://gist.github.com/travishen/1a03e022f4342481ebf61785e344f24f : pure protot
 # Ressources
 
 ## Traits
+- https://www.barbarianmeetscoding.com/blog/safer-javascript-object-composition-with-traits-and-traits-dot-js
 - https://calebporzio.com/equivalent-of-php-class-traits-in-javascript notons que d'apres mon test addMixin ne fonctionne pas
 - https://github.com/YR/simple-traits/blob/master/index.js ce qui est intéressant dans ce code c'est l'explication de object.create
 ```javascript
@@ -35,13 +36,84 @@ var objectCreate = Object.create
 		};
 ```
 
+### Librairies
+ - https://github.com/SciSpike/mutrait
+
 ## Héritage
 
-## Composition
+## Multihéritage
 
-juste une information la composition par Object.assign opère une shallow copy (on pointe sur la meme zone), par contre ... opère une deepCopy voir dans les tests personnels
+### Librairie
+- https://github.com/fasttime/Polytype
 
+## Composition (Mixin)
+
+Dans les commentaires de cette [question](https://stackoverflow.com/questions/66967141/is-composition-less-performant-than-inheritance-in-javascrip) appelle cela : mixin based composition ce qui me semble être très explicite. Je pense que les tests dont le commentaire parle sont ici: https://jsbench.me/0mkn7wwj7n/1
+>  Class based inheritance & prototype mixin tests were the fastest 
+*NoteStt*
+```javascript
+Gator2 = {
+   name:'',
+   biteCount:0
+}
+
+console.dir(Gator2); // permet de voir que Gator2 sera bien modifié lors de l'appel a aly
+
+//publicHi.call(Gator2.prototype); ne peut pas fonctionner
+//publicBite.call(Gator2.prototype); ne peut pas fonctionner
+
+
+function invokeBehavior(item) {
+  item.sayHi();
+
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+
+  item.sayHi();
+}
+
+aly = Object.create(Gator2)
+publicHi.call(aly.__proto__);
+publicBite.call(aly.__proto__);
+invokeBehavior(aly);
+```
+
+juste une information la composition par Object.assign opère une shallow copy (on pointe sur la meme zone), par contre ... opère une deep copy voir dans les tests personnels ([ref](https://stackoverflow.com/questions/184710/what-is-the-difference-between-a-deep-copy-and-a-shallow-copy))
+
+ce que je retiens surtout est illustré dans [cet article](https://medium.com/geekculture/mixin-and-treats-94035022182c) dans la partie javascript, le mixin est une copie dans l'objet de destination des differentes propriétés à recopier.
+C'est aussi ce qu'on voit [ici](https://stackoverflow.com/questions/48710304/what-are-the-practical-differences-between-mixins-and-inheritance-in-javascript). De ce dernier article je retiens aussi 
+> This flexibility should be not that surprising since mixins/traits contribute to composition just the behavior point of view (an object has a behavior) whereas real inheritance, also in JS, is responsible for the is a thing relationship. 
+
+
+
+- https://javascript.info/mixins
+- https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance?rq=1
 - https://www.digitalocean.com/community/tutorials/js-using-js-mixins rapide
+- https://medium.com/geekculture/mixin-and-treats-94035022182c
+- https://subscription.packtpub.com/book/application-development/9781783283576/1/ch01lvl1sec11/understanding-javascript-mixins pas compris l'article
+- https://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/semble semble avoir un lien avec l'article précédent
+- https://javascript.info/mixins rien de véritablement neuf
+
+### Librairie
+- https://github.com/soundcloud/remixin dommage qu'il y ait une dépendance à underscore semble être entre le hook et le mixin
+- https://github.com/daffl/uberproto pas forcément nécessaire mais pourrait être utile
+- https://github.com/Gozala/selfish : Class-free, pure prototypal inheritance  pour info
+
+- https://github.com/michaelfranzl/captain-hook  Tiny configurable and isomorphic event emitter library for mixing into JavaScript objects  , NOTESTT complet, intéressant
+- https://github.com/glooca/pubsub Javascript publisher-subscriber eventbus / mixin 
+
+## Global
+
+- https://stackoverflow.com/questions/66967141/is-composition-less-performant-than-inheritance-in-javascript NOTESS on retrouve des commentaires de peter sellinger le meme que sur le ce message](https://stackoverflow.com/questions/48710304/what-are-the-practical-differences-between-mixins-and-inheritance-in-javascript) 
+- https://stackoverflow.com/questions/48710304/what-are-the-practical-differences-between-mixins-and-inheritance-in-javascript
 
 # Tests personnels
 
@@ -213,4 +285,90 @@ console.log(alligator3.a); //1
 console.log(alligator4.a); //1
 console.log(alligator === alligator2); // true
 ```
+```javascrip
+// pour un joli schéma d'ensemble sur http://www.objectplayground.com/
+Gator1 = {
+   name:'',
+   biteCount:0
+}
+
+Gator2 = {
+   name:'',
+   biteCount:0
+}
+
+console.dir(Gator2);
+function publicHi() {
+  this.sayHi = function () {
+    return `Hi! I'm ${ this.name }`;
+  }
+}
+function publicBite() {
+  this.bite = function () {
+    return `Yum yum!..( ${ ++this.biteCount } )`;
+  }
+}
+//publicHi.call(Gator2.prototype);
+//publicBite.call(Gator2.prototype);
+
+
+function invokeBehavior(item) {
+  item.sayHi();
+
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+  item.bite();
+
+  item.sayHi();
+}
+
+this.Gator2 = Gator2;
+aly = Object.create(Gator2)
+publicHi.call(aly.__proto__);
+publicBite.call(aly.__proto__);
+invokeBehavior(aly);
+aly2 = Object.create(Gator2)
+invokeBehavior(aly2);
+this.aly = aly;
+this.aly2 = aly2;
+this.Gator1 = Gator1
+var publicBite2 = { bite: function(){++this.biteCount}    }
+var publicHi2= { sayHi: function(){} }
+GatorChild = {...Gator1, ...publicBite2, ...publicHi2};
+this.GatorChild = GatorChild;
+aly3 = Object.create(GatorChild)
+invokeBehavior(aly3);
+this.aly3 = aly3;
+var swim = {
+  a:1,
+  location() {
+    console.log(`Heading ${this.direction} at ${this.speed}`);
+  }
+};
+
+var Alligator = function(speed, direction) {
+  this.speed = speed,
+  this.direction = direction
+};
+
+//This is our source object
+var alligator = new Alligator('20 mph','North');
+
+alligator = Object.assign(alligator, swim);
+alligator2 = Object.assign(alligator, swim);
+alligator3 = {...alligator, ...swim};
+alligator4 = Object.assign({},alligator, swim);
+
+this.Alligator = Alligator
+this.alligator = alligator
+this.alligator2  = alligator2;
+this.alligator3 = alligator3;
+this.alligator4 = alligator4;
 ```
