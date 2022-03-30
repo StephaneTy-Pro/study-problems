@@ -39,7 +39,11 @@ var objectCreate = Object.create
 
 ## Composition
 
+juste une information la composition par Object.assign opère une shallow copy (on pointe sur la meme zone), par contre ... opère une deepCopy voir dans les tests personnels
+
 # Tests personnels
+
+## Général
 
 ```javascript
 var person = {
@@ -174,4 +178,34 @@ console.log(Object.getPrototypeOf(jack));
 }
 
 // note console.log(Object.getPrototypeOf(jack) === person); renvoie bien true
+```
+## Shallow copy
+
+```javascript
+//The swim property here is the mixin
+var swim = {
+  a:1,
+  location() {
+    console.log(`Heading ${this.direction} at ${this.speed}`);
+  }
+};
+
+var Alligator = function(speed, direction) {
+  this.speed = speed,
+  this.direction = direction
+};
+
+//This is our source object
+var alligator = new Alligator('20 mph','North');
+
+alligator = Object.assign(alligator, swim);
+alligator2 = Object.assign(alligator, swim);
+alligator3 = {...alligator, ...swim};
+console.log(alligator.location()); // Heading North at 20 mph
+console.log(alligator.a); // 1
+alligator.a = 2;
+console.log(alligator.a); //2
+console.log(alligator2.a); //2 
+console.log(alligator3.a); //1
+```
 ```
