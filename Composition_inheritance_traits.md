@@ -48,6 +48,26 @@ var objectCreate = Object.create
 
 ## Composition (Mixin)
 
+https://vimeo.com/69255635 Eliott surtout regarder a partir de la 19eme minute, ce que je n'ai pas encore compris pourquoi call
+
+```javascript
+var model = function(){
+  var attrs = {};
+  this.set = function(name, value){
+    attrs[name] = value;
+  }
+  this.get = function(name,value){
+    return attrs[name];
+  }
+}
+
+console.dir(model);
+b = {}
+model.call(b)
+b.set('a',1)
+b.get('a')
+```
+
 Dans les commentaires de cette [question](https://stackoverflow.com/questions/66967141/is-composition-less-performant-than-inheritance-in-javascrip) appelle cela : mixin based composition ce qui me semble être très explicite. Je pense que les tests dont le commentaire parle sont ici: https://jsbench.me/0mkn7wwj7n/1
 >  Class based inheritance & prototype mixin tests were the fastest 
 *NoteStt*
