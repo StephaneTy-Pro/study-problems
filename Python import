@@ -1,0 +1,43 @@
+# j'avais le probleme suivant
+
+<ROOT>
+  .env
+  config.py
+  makefile
+ <naturaviganon_voucher_app>
+   db.py
+   __init__.py
+   dbMgt.py
+   ...
+# fichier
+ ------------- __init__.py -----------
+ ...
+ from config import Config
+ 
+ 
+ ------------- dbMgt.py ---------------
+ ...
+ from config import Config
+
+
+# Dans mon makefile je voulais
+
+ - lancer l'application
+ 
+    run_p:venv ## production server via guinicorn
+      $(VENV)/gunicorn --bind 0.0.0.0:5000 wsgi:application
+        
+ - lancer dbMgt
+ 
+    init-db:venv ## empty db, add some fake
+	    $(VENV)/python -m naturavignon_voucher_app.dbMgt initdb
+      
+      
+le -m a permis de definir qu'il fallait lancer dans le module naturavignon_voucher_app, le fichier dbMgt avec en parametre initdb
+sans cela j'avais écrit
+
+init-db:venv ## empty db, add some fake
+	$(VENV)/python ./naturavignon_voucher_app/dbMgt.py init-db
+
+mais j'avais le soucis sur les imports notamment celui de config puisqu'il est dans le répertoire parent au package que je lance (naturavignon_voucher_app)
+ça ne pose pas de soucis dans l' __init__ mais c'est tout.
