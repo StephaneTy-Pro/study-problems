@@ -1,0 +1,48 @@
+#Probleme
+
+Réussir à poser Flask + Mysql ce qui a priori pose quelques problemes d'installation notamment du fait que je n'ai pas installer mysql et qu'il est nécessaire de l'avoir pour installer les drivers de connexion
+en tout cas pour sqlachemy et flask_mysql
+
+# Solution
+  https://github.com/PyMySQL/PyMySQL
+    vient de https://stackoverflow.com/questions/27766794/switching-from-sqlite-to-mysql-with-flask-sqlalchemy
+      qui vient de https://stackoverflow.com/questions/454854/no-module-named-mysqldb
+      
+   Au passage noter aussi, car bien pratique l'éco systeme flask et ses exemples
+    https://github.com/pallets-eco/flask-sqlalchemy/blob/main/examples/flaskr/flaskr/__init__.py
+
+# Contexte en bordel
+	Flask flaskext.mysql no attribute connection
+		https://stackoverflow.com/questions/45521644/flask-flaskext-mysql-no-attribute-connection
+		VISIBLEMENT je n'ai pas pris la bonne version
+			https://github.com/cyberdelia/flask-mysql
+		https://www.quora.com/How-do-I-solve-the-attribute-error-MySQL-that-has-no-attribute-connector-in-Python
+
+	OSError: mysql_config not found when installing mysql interface
+
+		Visiblement je ne peux pas faire sans installer mysql
+		On va donc passer par alchemy
+
+	PAS Encore ça alchemy a aussi besoin de mysql
+
+		https://linuxhint.com/modulenotfounderror-module-named-mysqldb/
+
+	Donc on passe par
+
+		AU PASSAGE voici la meilleure réponse : https://stackoverflow.com/questions/27766794/switching-from-sqlite-to-mysql-with-flask-sqlalchemy
+
+		https://stackoverflow.com/questions/454854/no-module-named-mysqldb
+		https://github.com/PyMySQL/PyMySQL
+
+		A REGARDER AUSSI : https://github.com/pallets-eco/flask-sqlalchemy
+    
+    
+    
+    # Ressources
+https://gist.github.com/durveshshah/2878b8b9a30f050558d94b44205f45a4
+https://github.com/hackersandslackers/flask-blueprint-tutorial/tree/master/flask_blueprint_tutorial
+https://github.com/bhargav2427/typing-master/blob/master/app.py
+https://github.com/jabahum/flask-api-mysql-sqlite/blob/master/app.py
+https://github.com/JacobGrisham/Finance-Full-Stack-Web-App-using-Flask-and-SQL
+	Monolithic model-view-controller full-stack web application built with Python, Flask, SQL Alchemy, MySQL, Jinja, and Bootstrap. Application Server hosted on AWS EC2 with Ubuntu, Gunicorn, and Nginx. MySQL Database on AWS RDS. Redis hosted on AWS Elasticache. CI/CD with Jenkins and AWS CodeDeploy
+https://github.com/hack4impact/flask-base
